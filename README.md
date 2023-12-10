@@ -58,6 +58,6 @@ Note that the default parameters may not be the best to reproduce our results in
   * PROTEINS
   * PTC
 
-Saved in ./data/datasets.7z
+Saved in ./data/node level.7z and ./data/graph level.7z
 
 *Note: Please unzip the datasets folders first, and random data splitting function can be found in Dataloader.py.*
