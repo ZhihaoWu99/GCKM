@@ -60,4 +60,4 @@ Note that the default parameters may not be the best to reproduce our results in
 
 Saved in ```./data/node level.7z``` and ```./data/graph level.7z```
 
-*Note: Please unzip the datasets folders first, and random data splitting function can be found in Dataloader.py.*
+*Note: (1) Please unzip the datasets folders first; (2) Random data splitting function can be found in Dataloader.py; (3) Please feel free to contact me for codes regarding OGB-Arxiv (due to the large file)*
