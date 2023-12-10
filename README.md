@@ -49,6 +49,9 @@ Note that the default parameters may not be the best to reproduce our results in
   * CoraFull
   * Squirrel
   * UAI
+  * OGB-Arxiv
+
+*Note: Please feel free to contact me via [zhihaowu1999@gmail.com](zhihaowu1999@gmail.com) for codes regarding OGB-Arxiv (due to the large file).*
 
 ### Graph-level
   * COLLAB
@@ -60,4 +63,14 @@ Note that the default parameters may not be the best to reproduce our results in
 
 Saved in ```./data/node level.7z``` and ```./data/graph level.7z```
 
-*Note: (1) Please unzip the datasets folders first; (2) Random data splitting function can be found in Dataloader.py; (3) Please feel free to email me for codes regarding OGB-Arxiv (due to the large file).*
+*Note: Please unzip the datasets folders first; Random data splitting function can be found in Dataloader.py.*
+
+## Reference
+```
+@inproceedings{wu2023graph,
+  title={Graph Convolutional Kernel Machine versus Graph Convolutional Networks},
+  author={Wu, Zhihao and Zhang, Zhao and Fan, Jicong},
+  booktitle={Thirty-seventh Conference on Neural Information Processing Systems},
+  year={2023}
+}
+
