@@ -49,9 +49,9 @@ Note that the default parameters may not be the best to reproduce our results in
   * CoraFull
   * Squirrel
   * UAI
-  * OGB-Arxiv
+  * OGB-Arxiv*
 
-*Note: Please feel free to contact me via zhihaowu1999@gmail.com for codes regarding OGB-Arxiv (due to the large file).*
+*Please feel free to contact me via zhihaowu1999@gmail.com for codes regarding OGB-Arxiv (due to the large file).
 
 ### Graph-level
   * COLLAB
