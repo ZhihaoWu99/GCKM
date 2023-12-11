@@ -15,6 +15,7 @@ if __name__ == '__main__':
         conf = configparser.ConfigParser()
         config_path = './config/config_node_classification.ini'
         conf.read(config_path)
+        assert conf.has_section(args.dataset)
         args.gamma = ast.literal_eval(conf.get(args.dataset, 'gamma'))
         args.dim = ast.literal_eval(conf.get(args.dataset, 'dim'))
         args.pow = conf.getint(args.dataset, 'pow')
