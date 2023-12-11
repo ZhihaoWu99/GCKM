@@ -73,4 +73,4 @@ Saved in ```./data/node level.7z``` and ```./data/graph level.7z```
   booktitle={Thirty-seventh Conference on Neural Information Processing Systems},
   year={2023}
 }
-
+```
