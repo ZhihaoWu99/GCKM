@@ -45,7 +45,7 @@ if __name__ == '__main__':
     args.dim = [features.shape[1]] + args.dim
 
     # Set the searching parameters
-    evals = 5
+    evals = 2000
     space = {'power_A': hp.uniform('power_A', 1, 10),
              'gamma1': hp.uniform('gamma1', 0.001, 10),
              'gamma2': hp.uniform('gamma2', 0.001, 10),
