@@ -37,6 +37,13 @@ for graph classification task,
 
 Note that the default parameters may not be the best to reproduce our results in the paper.
 
+## Tuning
+For datasets that are not included in our paper, please run
+```
+python para_tuning.py --dataset *new_dataset_name*
+```
+to search for the best parameters on validation set.
+
 ## Dataset
 
 ### Node-level
