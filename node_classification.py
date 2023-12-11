@@ -8,7 +8,6 @@ import ast
 from Dataloader import load_data, generate_partition
 from args import parameter_parser
 from main import kernel, classification
-from PCA import pca, gpca
 
 
 if __name__ == '__main__':
@@ -27,6 +26,4 @@ if __name__ == '__main__':
     adj, features, labels, n_class, idx_train, idx_val, idx_test = load_data(args)
     args.dim = [features.shape[1]] + args.dim
     K = kernel(args, adj, features)
-    # classification(args, K, labels, idx_train, idx_val, idx_test)
-    pca(features.cpu(), K.cpu(), labels)
-    gpca(features, adj, labels, idx_test, 0.2)
+    classification(args, K, labels, idx_train, idx_val, idx_test)
