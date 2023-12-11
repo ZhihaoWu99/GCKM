@@ -24,11 +24,13 @@ def load_data(args):
     print('dataset: {}\n# node: {}\n# class: {}'.format(
         args.dataset, features.shape[0], n_class
     ))
-    idx_train, idx_test, idx_val, idx_unlabeled = generate_partition(data)
+    if args.rand_split:
+        idx_train, idx_test, idx_val, idx_unlabeled = generate_partition_random(data, 20)
+    else:
+        idx_train, idx_test, idx_val, idx_unlabeled = generate_partition(data)
     adj_hat = torch.from_numpy(construct_adj_hat(adj).todense()).float().to(args.device)
     features = torch.from_numpy(features).float().to(args.device)
     labels = torch.from_numpy(labels).long()
-
     return adj_hat, features, labels, n_class, idx_train, idx_val, idx_test
 
 
@@ -57,13 +59,11 @@ def generate_partition(data):
     return idx_train, idx_test, idx_val, []
 
 
-def generate_partition_random(labels, num_perclass, sf_seed):
+def generate_partition_random(labels, num_perclass):
     each_class_num = count_each_class_num(labels)
-    labeled_each_class_num = {}  ## number of labeled samples for each class
+    labeled_each_class_num = {}
     for label in each_class_num.keys():
-        # labeled_each_class_num[label] = max(round(each_class_num[label] * ratio), 1) # min is 1
         labeled_each_class_num[label] = num_perclass
-    # index of labeled and unlabeled samples
     num_test = 1000
     num_val = 500
     idx_train = []
@@ -71,10 +71,7 @@ def generate_partition_random(labels, num_perclass, sf_seed):
     idx_val = []
     idx_unlabeled = []
     index = [i for i in range(len(labels))]
-    # print(index)
-    if sf_seed > 0:
-        random.seed(sf_seed)
-        random.shuffle(index)
+    random.shuffle(index)
     labels = labels[index]
     for idx, label in enumerate(labels):
         if (labeled_each_class_num[label] > 0):
@@ -109,55 +106,10 @@ def construct_sparse_float_tensor(np_matrix):
 def sparse_to_tuple(sparse_mx):
     if not ss.isspmatrix_coo(sparse_mx):
         sparse_mx = sparse_mx.tocoo()
-
-    # sparse_mx.row/sparse_mx.col  <class 'numpy.ndarray'> [   0    0    0 ... 2687 2694 2706]
-    coords = np.vstack((sparse_mx.row, sparse_mx.col)).transpose()  # <class 'numpy.ndarray'> (n_edges, 2)
-    values = sparse_mx.data  # <class 'numpy.ndarray'> (n_edges,) [1 1 1 ... 1 1 1]
-    shape = sparse_mx.shape  # <class 'tuple'>  (n_samples, n_samples)
+    coords = np.vstack((sparse_mx.row, sparse_mx.col)).transpose()
+    values = sparse_mx.data
+    shape = sparse_mx.shape
     return coords, values, shape
-
-
-def generate_partition_for_CoraFull(labels, num_perclass, sf_seed):
-    each_class_num = count_each_class_num(labels)
-    print(each_class_num)
-    labeled_each_class_num = {}  ## number of labeled samples for each class
-    test_each_class_num = {}
-    val_each_class_num = {}
-    for label in each_class_num.keys():
-        labeled_each_class_num[label] = max(round(each_class_num[label] * 0.07055), 1) # min is 1
-        val_each_class_num[label] = max(round(each_class_num[label] * 0.02526), 1)
-        test_each_class_num[label] = max(round(each_class_num[label] * 0.0506), 1)
-    print(labeled_each_class_num)
-    print(val_each_class_num)
-    print(test_each_class_num)
-    num_test = 1000
-    num_val = 500
-    idx_train = []
-    idx_test = []
-    idx_val = []
-    idx_unlabeled = []
-    index = [i for i in range(len(labels))]
-    # print(index)
-    if sf_seed >= 0:
-        random.seed(sf_seed)
-    random.shuffle(index)
-    labels = labels[index]
-    for idx, label in enumerate(labels):
-        if (labeled_each_class_num[label] > 0):
-            labeled_each_class_num[label] -= 1
-            idx_train.append(index[idx])
-        else:
-            idx_unlabeled.append(index[idx])
-            if num_test > 0 and test_each_class_num[label] > 0:
-                test_each_class_num[label] -= 1
-                num_test -= 1
-                idx_test.append(index[idx])
-            elif num_val > 0 and val_each_class_num[label] > 0:
-                val_each_class_num[label] -= 1
-                num_val -= 1
-                idx_val.append(index[idx])
-    print('train: {}, val: {}, test: {}'.format(len(idx_train), len(idx_val), len(idx_test)))
-    return idx_train, idx_test, idx_val, idx_unlabeled
 
 
 def count_each_class_num(labels):

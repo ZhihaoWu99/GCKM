@@ -16,6 +16,7 @@ def parameter_parser():
 
     # Parameter only for classification
     parser.add_argument('--C', type=float, default=1, help="Regularization parameter of SVM.")
+    parser.add_argument('--rand_split', type=bool, default=False, help="Random split.")
     # Parameter only for graph classification
     parser.add_argument('--degree_as_tag', action="store_true", default=False, help='Degree as node features.')
     # Parameter only for node clustering
