@@ -2,7 +2,7 @@ Graph Convolutional Kernel Machine
 ====
 This is the implementation of GCKM proposed in our paper:
 
-Zhihao Wu, Zhao Zhang, and Jicong Fan*. [Graph Convolutional Kernel Machine versus Graph Convolutional Networks](https://openreview.net/forum?id=SFfOt1oDsX), NeurIPS 2023.
+[Zhihao Wu](https://zhihaowu99.github.io/), Zhao Zhang, and Jicong Fan*. [Graph Convolutional Kernel Machine versus Graph Convolutional Networks](https://openreview.net/forum?id=SFfOt1oDsX), NeurIPS 2023.
 
 ![framework](./Framework.jpg)
 
