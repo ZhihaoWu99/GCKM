@@ -23,19 +23,18 @@ Unzip the dataset files
 ```
 unzip ./data/datasets.7z
 ```
-then run 
+For node classification task, run 
 ```
 python node_classification.py --dataset Cora
 ```
-for node classification task,
+For node clustering task, run 
 ```
 python node_clustering.py --dataset Cora
 ```
-for node clustering task,
+For graph classification task, run
 ```
 python graph_classification.py --dataset MUTAG
 ```
-for graph classification task,
 
 Note that the default parameters may not be the best to reproduce our results in the paper.
 
