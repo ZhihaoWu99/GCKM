@@ -42,7 +42,10 @@ For datasets that are not included in our paper, please run
 ```
 python para_tuning.py --dataset *new_dataset_name*
 ```
-to search for the best parameters on validation set.
+to search for the best parameters on validation set. 
+
+```para_tuning.py``` requires extra package
+  * Hyperopt
 
 ## Dataset
 
