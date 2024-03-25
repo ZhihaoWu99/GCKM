@@ -4,8 +4,6 @@ This is the implementation of GCKM proposed in our paper:
 
 [Zhihao Wu](https://zhihaowu99.github.io/), [Zhao Zhang](http://faculty.hfut.edu.cn/cszzhang/zh_CN/), and [Jicong Fan](https://jicongfan.github.io/)*. [Graph Convolutional Kernel Machine versus Graph Convolutional Networks](https://openreview.net/forum?id=SFfOt1oDsX), NeurIPS 2023.
 
-
-
 ![framework](./Framework.jpg)
 
 ## Requirement
@@ -45,7 +43,7 @@ python para_tuning.py --dataset *new_dataset_name*
 ```
 to search for the best parameters on validation set. 
 
-Running ```para_tuning.py``` requires extra package
+Running ```para_tuning.py``` requires
   * [Hyperopt](https://github.com/hyperopt/hyperopt)
 
 
@@ -82,7 +80,9 @@ Saved in ```./data/node level.7z``` and ```./data/graph level.7z```
 @inproceedings{wu2023graph,
   title={Graph Convolutional Kernel Machine versus Graph Convolutional Networks},
   author={Wu, Zhihao and Zhang, Zhao and Fan, Jicong},
-  booktitle={Thirty-seventh Conference on Neural Information Processing Systems},
+  booktitle={Advances in Neural Information Processing Systems},
+  pages = {19650--19672},
+  volume = {36},
   year={2023}
 }
 ```
