@@ -49,7 +49,7 @@ Running ```para_tuning.py``` requires
 
 ## Dataset
 Please unzip the datasets folders saved in ```./data/node level.7z``` and ```./data/graph level.7z``` first.
-```
+
 data/
 │
 ├── node level/
@@ -70,7 +70,6 @@ data/
     ├── MUTAG
     ├── PROTEINS
     └── PTC
-```
 
 *Feel free to contact me via zhihaowu1999@gmail.com for codes regarding OGB-Arxiv (due to the large file). Random data splitting function can be found in Dataloader.py.*
 
