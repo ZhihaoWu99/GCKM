@@ -41,39 +41,38 @@ For datasets that are not included in our paper, please run
 ```
 python para_tuning.py --dataset *new_dataset_name*
 ```
-to search for the best parameters on validation set. 
+to search for the best parameters on the validation set. 
 
 Running ```para_tuning.py``` requires
   * [Hyperopt](https://github.com/hyperopt/hyperopt)
 
 
 ## Dataset
+Please unzip the datasets folders saved in ```./data/node level.7z``` and ```./data/graph level.7z``` first.
+```
+data/
+│
+├── node level/
+│   ├── ACM.mat
+│   ├── Actor.mat
+│   ├── Chameleon.mat
+│   ├── Citeseer.mat
+│   ├── Cora.mat
+│   ├── CoraFull.mat
+│   ├── Pubmed.mat
+│   ├── Squirrel.mat
+│   └── UAI.mat
+│
+└── graph level/
+    ├── COLLAB
+    ├── IMDBBINARY
+    ├── IMDBMULTI
+    ├── MUTAG
+    ├── PROTEINS
+    └── PTC
+```
 
-### Node-level
-  * Cora
-  * Citeseer
-  * Pubmed
-  * ACM
-  * Actor
-  * Chameleon
-  * CoraFull
-  * Squirrel
-  * UAI
-  * OGB-Arxiv*
-
-*Please feel free to contact me via zhihaowu1999@gmail.com for codes regarding OGB-Arxiv (due to the large file).
-
-### Graph-level
-  * COLLAB
-  * IMDBBINARY
-  * IMDBMULTI
-  * MUTAG
-  * PROTEINS
-  * PTC
-
-Saved in ```./data/node level.7z``` and ```./data/graph level.7z```
-
-*Note: Please unzip the datasets folders first; Random data splitting function can be found in Dataloader.py.*
+*Feel free to contact me via zhihaowu1999@gmail.com for codes regarding OGB-Arxiv (due to the large file). Random data splitting function can be found in Dataloader.py.*
 
 ## Reference
 ```
